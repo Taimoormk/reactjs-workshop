@@ -4,10 +4,13 @@ import { Footer } from './components/footer';
 import { Input } from './components/input';
 import { connect } from 'react-redux';
 import * as actions from './redux/actions';
+import { InputWithLocalState } from './components/input-local-state';
+import { InputWithReduxState } from './components/input-redux-state';
 
 class App extends React.Component {
   render() {
     const { input, updateInput } = this.props;
+
     return (
       <Fragment>
         <div>
@@ -16,6 +19,14 @@ class App extends React.Component {
         <Header text="Header" />
         <Footer text="Footer" number={2} bool />
         <Input input={input} updateInput={updateInput} />
+        <div>
+          <p>Input with local state (hooks)</p>
+          <InputWithLocalState />
+        </div>
+        <div>
+          <p>Input with redux state (hooks)</p>
+          <InputWithReduxState />
+        </div>
       </Fragment>
     );
   }
